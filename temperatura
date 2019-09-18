@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+/*temperatura sa if funkcijom
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char** argv) {
+	float a;
+	cout<<"Upisite temperaturu: "<<endl;
+	cin>>a;
+	if(a>24.5){
+		cout<<"Temperatura je topla. "<<endl;
+	}
+	else{
+		cout<<"Temperatura je hladna. "<<endl;
+	
+	}
+	return 0;
+}
