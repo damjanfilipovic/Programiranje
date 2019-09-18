@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+/upisi cijeli broj razlicit od 0 broj...je...njegova apsolutna vrijednost je ...
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char** argv) {
+	int a;
+	cout<<"Upisite broj "<<endl;
+	cin>>a;
+	if(a<0)
+	{
+		cout<<"Broj je negativan. "<<endl;
+	}
+	else if(a==0){
+		cout<<"Broj je jednak nuli. "<<endl;
+	}
+	else{
+		cout<<"Broj je pozitivan. "<<endl;
+	};
+	if(a<0){
+		a=a*-1;
+	}
+	cout<<"Apsloutna vrijednost je: "<<endl<<a<<endl;
+
+	return 0;
+}
