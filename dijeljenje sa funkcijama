@@ -1,0 +1,19 @@
+#include <cstdlib>
+#include <iostream>
+
+using namespace std;
+double dijeljenje (float a, float b){
+       float c=a/b;
+       return c;}
+int main(int argc, char *argv[])
+{   float a, b;
+    cout<<"Unesite 2 broja: "<<endl;
+    cin>>a;
+    cin>>b;
+    float rezultat;
+    rezultat=dijeljenje (a, b);
+    cout<<"Rezultat je: "<<rezultat<<endl;
+        
+    system("PAUSE");
+    return EXIT_SUCCESS;
+}
