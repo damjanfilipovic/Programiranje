@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+int main() {
+	char slovo[15]={'a', 'n', 'a', 'v', 'o', 'l', 'i', 'm', 'i', 'l', 'o', 'v', 'a', 'n', 'a'};
+	cout<<slovo[0];
+	cout<<slovo[1];
+	cout<<slovo[2];
+	cout<<slovo[3];
+	cout<<slovo[4];
+	cout<<slovo[5];
+	cout<<slovo[6];
+	
+return 0;
+}
