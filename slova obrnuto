@@ -1,0 +1,24 @@
+#include <iostream>
+//neznam drugacije 
+using namespace std;
+int main() {
+	char slovo[15]={'a', 'n', 'a', 'v', 'o', 'l', 'i', 'm', 'i', 'l', 'o', 'v', 'a', 'n', 'a'};
+	cout<<slovo[15];
+	cout<<slovo[14];
+	cout<<slovo[13];
+	cout<<slovo[12];
+	cout<<slovo[11];
+	cout<<slovo[10];
+	cout<<slovo[9];
+	cout<<slovo[8];
+	cout<<slovo[7];
+	cout<<slovo[6];
+	cout<<slovo[5];
+	cout<<slovo[4];
+	cout<<slovo[3];
+	cout<<slovo[2];
+	cout<<slovo[1];
+	cout<<slovo[0];
+	
+return 0;
+}
