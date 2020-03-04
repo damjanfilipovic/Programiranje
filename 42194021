@@ -1,0 +1,150 @@
+#include <iostream>
+#include <fstream>
+#include <cstdlib>
+#include <string.h> 
+using namespace std;
+
+void kreiraj();
+void upis();
+void ispis();
+void pretrazi(int element);
+struct clan {
+    char ime[30];
+    int starost;
+    int god;
+    char mjesto[30];
+};
+clan s;
+char ime_dat[30];
+int main() {
+    int unos,unos2;
+    do{
+        system("CLS");
+        cout<<"Aplikacija za pracenje clanova"<<endl;
+        cout<<"1. Kreiraj datoteku"<<endl;
+        cout<<"2. Unos clanova"<<endl;
+        cout<<"3. Ispis"<<endl;
+        cout<<"4. Pretrazivanje"<<endl;
+        cout<<"5. Izlaz"<<endl;
+        cin>>unos;
+        if(unos==1)
+            kreiraj();
+        else if(unos==2)
+            upis();
+        else if(unos==3)
+            ispis();
+        else if(unos==4){
+            cout<<"Pretraga"<<endl;
+            cout<<"1. Po imenu"<<endl;
+            cout<<"2. Po starosti"<<endl;
+            cout<<"3. Po godini upisa"<<endl;
+            cout<<"4. Po mjestu"<<endl;
+            cin>>unos2;
+            pretrazi(unos2);
+        }
+    }while(unos!=5);
+    
+    return 0;
+}
+void kreiraj() {
+    fstream f;
+    cout<<"Upisi ime datoteke:";
+    cin>>ime_dat;
+    f.open(ime_dat,ios::in|ios::binary);
+    if(!f){
+        f.open(ime_dat,ios::out|ios::binary);
+        f.close();
+    }else
+    {
+        cout<<"Datoteka vec postoji pod imenom "<<ime_dat<<endl;
+        f.close();
+    }
+}
+void upis() {
+    char nastavak;
+    fstream f;
+    f.open(ime_dat,ios::out|ios::ate|ios::binary);
+    do{
+        cout<<"Unesi ime clana:";
+        cin>>s.ime;
+        cout<<"Unesi starost:";
+        cin>>s.starost;
+        cout<<"Unesi godinu uclanjenja:";
+        cin>>s.god;
+        cout<<"Unesi mjesto stanovanja:";
+        cin>>s.mjesto;
+        f.write((char *)&s,sizeof(s));
+        cout<<"Dodaj jos (d/n):";
+        cin>>nastavak;
+    }while(nastavak=='d');
+    f.close();
+}
+void ispis() {
+    fstream f;
+    f.open(ime_dat,ios::in|ios::binary);
+    cout<<"Ime\t Starost \t Uclanjenje \t Stanovanje"<<endl;
+    while(1){
+        f.read((char *)&s,sizeof(s));
+        if(f.eof()) break;
+        cout<<s.ime<<"\t\t"<<s.starost<<"\t\t"<<s.god<<"\t\t"<<s.mjesto<<endl;
+    }
+    f.close();
+    system("pause");
+}
+
+void pretrazi(int element) {
+    char ime_stud[30];
+    int broj;
+    fstream f;
+    f.open(ime_dat,ios::in|ios::binary);
+    if(element==1){
+        cout<<"Unesi ime trazenog clana: ";
+        cin>>ime_stud;
+        cout<<"Ime\t Starost \t Uclanjenje \t Stanovanje"<<endl;
+        while(1){
+            f.read((char *)&s,sizeof(s));
+            if(f.eof()) break;
+            if(!strcmp(s.ime,ime_stud)){
+                cout<<s.ime<<"\t\t"<<s.starost<<"\t\t"<<s.god<<"\t\t"<<s.mjesto<<endl;
+            }
+        }
+    }
+    else if(element==2){
+        cout<<"Unesi starost trazenog clana: ";
+        cin>>broj;
+        cout<<"Ime\t Starost \t Uclanjenje \t Stanovanje"<<endl;
+        while(1){
+            f.read((char *)&s,sizeof(s));
+            if(f.eof()) break;
+            if(broj==s.starost){
+                cout<<s.ime<<"\t\t"<<s.starost<<"\t\t"<<s.god<<"\t\t"<<s.mjesto<<endl;
+            }
+        }
+    }
+    else if(element==3){
+        cout<<"Unesi godinu upisa trazenog clana: ";
+        cin>>broj;
+        cout<<"Ime\t Starost \t Uclanjenje \t Stanovanje"<<endl;
+        while(1){
+            f.read((char *)&s,sizeof(s));
+            if(f.eof()) break;
+            if(broj==s.god){
+                cout<<s.ime<<"\t\t"<<s.starost<<"\t\t"<<s.god<<"\t\t"<<s.mjesto<<endl;
+            }
+        }
+    }
+    else if(element==4){
+        cout<<"Unesi mjesto trazenog clana: ";
+        cin>>ime_stud;
+        cout<<"Ime\t Starost \t Uclanjenje \t Stanovanje"<<endl;
+        while(1){
+            f.read((char *)&s,sizeof(s));
+            if(f.eof()) break;
+            if(!strcmp(s.mjesto,ime_stud)){
+                cout<<s.ime<<"\t\t"<<s.starost<<"\t\t"<<s.god<<"\t\t"<<s.mjesto<<endl;
+            }
+        }
+    }
+    f.close();
+    system("pause");
+}
