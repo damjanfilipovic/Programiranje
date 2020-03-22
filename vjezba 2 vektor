@@ -1,0 +1,41 @@
+#include <cstdlib> 
+#include <iostream> 
+#include <string> 
+using namespace std; 
+
+ int main(){ 
+    string r; 
+    int x; 
+    int y=1; 
+
+    cout<<"Ovo je program koji preuredjuje recenicu koju vi unesete."<<endl; 
+    cout<<"Unesite recenicu."<<endl; 
+    getline (cin,r); 
+    cout<<"Recenica glasi:"<<endl; 
+    cout<<endl; 
+
+for(x=0; r[x]!='\0'; x++) 
+{ cout<<r[x]; } 
+cout<<endl; 
+cout<<endl; 
+cout<<"Ima: "; 
+
+for(x=0; r[x]!='\0'; x++) 
+{ if (r[x]==' ') { 
+    y++; } } 
+    
+    cout<<y<<" rijeci."<<endl; 
+    cout<<"Preuredena recenica sa zarezima izgleda;"<<endl; 
+    cout<<endl; 
+
+    for(x=0; r[x]!='\0'; x++) { 
+        if (r[x]==' ') { 
+    r[x]=','; 
+    } } 
+    cout<<r<<endl; 
+
+return 0; 
+
+} 
+
+ 
