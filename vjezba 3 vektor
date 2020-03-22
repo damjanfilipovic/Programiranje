@@ -1,0 +1,42 @@
+#include <cstdlib>
+#include <iostream>
+#include <vector> 
+
+using namespace std;
+
+int main() 
+{
+	int y=1;
+	int x=1;
+	int a, b;
+	vector<int> v;
+	cout<<"Ovo je program koji vam omogucuje unosenje brojeva sve dok ne upisete nulu i ispisuje brojeve koji se ponavljaju."<<endl;
+	cout<<"Unesi brojeve jedan po jedan, za kraj unesi nulu."<<endl;
+	while(y!=0)
+	{
+	
+		cout<<"Unesi "<<x<<". broj: ";
+		cin>>y;
+		v.push_back(y);
+		x++;
+	
+	}
+	cout<<endl;
+	
+	cout << "Ponavljajuci brojevi su: " <<endl;
+	for (a=0; a<v.size(); a++)
+	{
+		for (b=a+1;  b<v.size(); b++)
+		{
+			if (v[a]==v[b])
+			{
+				cout<<v[b]<<" ";
+				break;
+			}
+			
+		}
+	} 
+	
+
+	return 0;
+}
