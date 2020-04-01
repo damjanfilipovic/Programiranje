@@ -1,0 +1,48 @@
+1.
+#include <iostream>
+#include <cstdlib>
+#include <string>
+#include <sstream>
+
+using namespace std;
+
+int main () {
+	cout<<"Program koji ce ispisati svaku rijec u novi red."<<endl;
+	cout<<endl;
+	cout<<"Primjer: "<<endl;
+	string str="C++ je najbolji programski jezik.";
+	istringstream noviRed(str);
+	do {	string str2;
+		noviRed>>str2;
+		cout<<str2<<endl;
+	} while (noviRed);
+	int brojac=0;
+	for (int i=0;str[i]!='\0';i++) {
+		if (str[i]==' ') {
+			brojac++;}}
+	cout<<"Recenica ima "<<brojac+1<<" rijeci!"<<endl;
+	system("pause");
+	return 0;
+}
+
+3. 
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+
+int main () {
+	string rec;
+	cout<<"Unesi recenicu: ";
+	getline(cin, rec);
+	string::iterator y=rec.begin()+1;
+	string::iterator x=rec.end()-1;
+	rec.erase(y,x);
+	
+	cout<<rec<<endl;
+	
+	system("Pause");
+	return 0;
+}
+
+
