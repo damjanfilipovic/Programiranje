@@ -11,21 +11,21 @@ using namespace std;
 	int i, j, najmanjiBroj; 
 	for (i=0; i<n-1; i++) { 					
 		najmanjiBroj=i; 						
-		for (j=i+1; j<n; j++) 					
+		for (j=i+1; j<n; j++) 	               //U ovom dijelu koda pronalazimo najmanji broj				
 		if (niz[j]<niz[najmanjiBroj]) 				
 			najmanjiBroj=j; 					
 			
-	zamj(&niz[najmanjiBroj], &niz[i]);			
+	zamj(&niz[najmanjiBroj], &niz[i]);	//najmanji broj se zamjenjuje s prvim	
 	} } 
 	int ispis(int niz[], int duljina) {			
 	int i; 										
-	for (i=0; i<duljina; i++) 					
+	for (i=0; i<duljina; i++) 	//ispisujemo rezultat		
 		cout<<niz[i]<<" "; 						
 	cout<<endl; } 								
-	int main() { 								
+	int main() { 						
 	int niz[10] = {90,45,2,17,5,27,19,50,40,2002}; 
-	int n=sizeof(niz)/sizeof(niz[0]); 			
-	selectionSort(niz, n); 							
+	int n=sizeof(niz)/sizeof(niz[0]); 		//Glavni kod, unosimo prije napisane funkcije		
+	selectionSort(niz, n); 		//i sortiramo rezultat					
 	cout<<"Sortirani niz: \n"; 						
 	ispis(niz, n); 									
 	
