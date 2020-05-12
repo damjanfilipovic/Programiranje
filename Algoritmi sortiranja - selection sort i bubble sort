@@ -1,0 +1,34 @@
+#include <iostream> 							
+
+using namespace std; 
+
+	int zamj(int *a, int *b) { 
+	int temp=*a; 
+	*a=*b; 
+	*b=temp; } 
+
+	int selectionSort(int niz[], int n) { 
+	int i, j, najmanjiBroj; 
+	for (i=0; i<n-1; i++) { 					
+		najmanjiBroj=i; 						
+		for (j=i+1; j<n; j++) 					
+		if (niz[j]<niz[najmanjiBroj]) 				
+			najmanjiBroj=j; 					
+			
+	zamj(&niz[najmanjiBroj], &niz[i]);			
+	} } 
+	int ispis(int niz[], int duljina) {			
+	int i; 										
+	for (i=0; i<duljina; i++) 					
+		cout<<niz[i]<<" "; 						
+	cout<<endl; } 								
+	int main() { 								
+	int niz[10] = {90,45,2,17,5,27,19,50,40,2002}; 
+	int n=sizeof(niz)/sizeof(niz[0]); 			
+	selectionSort(niz, n); 							
+	cout<<"Sortirani niz: \n"; 						
+	ispis(niz, n); 									
+	
+	system("pause");
+	return 0;
+} 
